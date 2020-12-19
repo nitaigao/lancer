@@ -48,6 +48,8 @@ const seed = async () => {
       },
     },
   })
+
+  process.exit()
 }
 
 seed()
