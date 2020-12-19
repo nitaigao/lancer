@@ -2,6 +2,12 @@
   border-bottom: 1px solid #ddd;
 }
 
-.cell {
+.rightCell {
+  padding: 1em 2em;
+  text-align: right;
+  width: 1em;
+}
+
+.leftCell {
   padding: 1em 2em;
 }

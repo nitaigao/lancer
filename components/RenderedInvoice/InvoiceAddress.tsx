@@ -14,8 +14,11 @@ const InvoiceAddress = ({
   <div className={styles.container}>
     {line1 && <div>{line1}</div>}
     {line2 && <div>{line2}</div>}
-    {town && <div>{town}</div>}
-    {postcode && <div>{postcode}</div>}
+    <>
+      {town && <span>{town}</span>}
+      {town && postcode && ', '}
+      {postcode && <span>{postcode}</span>}
+    </>
     {country && <div>{country}</div>}
   </div>
 )

@@ -1,5 +1,9 @@
+@media screen {
+  .container {
+    border: 1px solid #ddd;
+  }
+}
 .container {
-  border: 1px solid #ddd;
   margin: 1em;
   min-width: 960px;
   padding-bottom: 20em;

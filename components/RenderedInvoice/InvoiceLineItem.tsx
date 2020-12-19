@@ -17,12 +17,12 @@ const InvoiceLineItem = ({
   lineItem: { title, quantity, price, amount },
 }: InvoiceLineItemProps): ReactElement => (
   <tr className={styles.row}>
-    <td className={styles.cell}>{title}</td>
-    <td className={styles.cell}>{quantity}</td>
-    <td className={styles.cell}>
+    <td className={styles.leftCell}>{title}</td>
+    <td className={styles.rightCell}>{quantity}</td>
+    <td className={styles.rightCell}>
       {<Currency value={price} locale={locale} currency={currency} />}
     </td>
-    <td className={styles.cell}>
+    <td className={styles.rightCell}>
       <Currency currency={currency} locale={locale} value={amount} />
     </td>
   </tr>

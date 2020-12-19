@@ -18,9 +18,9 @@ const InvoiceLineItems = ({ lineItems, currency, locale }: InvoiceLineItemsProps
       <thead className={styles.header}>
         <tr>
           <td className={styles.header}>Items</td>
-          <td className={styles.header}>Quantity</td>
-          <td className={styles.header}>Price</td>
-          <td className={styles.header}>Amount</td>
+          <td className={`${styles.header} ${styles.right}`}>Quantity</td>
+          <td className={`${styles.header} ${styles.right}`}>Price</td>
+          <td className={`${styles.header} ${styles.right}`}>Amount</td>
         </tr>
       </thead>
       <tbody>

@@ -40,6 +40,12 @@ export const getServerSideProps = async (): Promise<GetServerSidePropsProps> => 
             price: 500,
             amount: 9000,
           },
+          {
+            title: 'Software Development',
+            quantity: 18,
+            price: 500,
+            amount: 9000,
+          },
         ],
         total: 9000,
         client: {
@@ -57,11 +63,10 @@ export const getServerSideProps = async (): Promise<GetServerSidePropsProps> => 
         supplier: {
           name: 'Nicholas Kostelnik',
           email: 'nkostelnik@gmail.com',
-          line1: 'Address Line 1',
-          line2: 'Address Line 2',
-          town: 'Town',
-          postcode: 'Postcode',
-          country: 'Country',
+          line1: '49 Mikheil Gakhokidze Street',
+          town: 'Tbilisi',
+          postcode: '0179',
+          country: 'Georgia',
         },
         amount: 1000,
         locale: 'en-GB',

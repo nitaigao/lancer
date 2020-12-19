@@ -5,6 +5,10 @@
   border: 0;
 }
 
+.right {
+  text-align: right;
+}
+
 .table {
   width: 100%;
   border-collapse: collapse;
