@@ -11,12 +11,13 @@ const seed = async () => {
       number: '1',
       total: 123,
       amount: 123,
-      notes: 'some notes',
+      notes:
+        'Please send payments to the United Kingdom\nBank Account numnber 93493484\nPlease send notification after payment',
       locale: 'en-GB',
       currency: 'GBP',
       client: {
         create: {
-          name: 'me',
+          name: 'Switcher',
           contact: 'Carl Gaywood',
           email: 'test@example.com',
           country: 'United Kingdom',
@@ -27,7 +28,7 @@ const seed = async () => {
       },
       supplier: {
         create: {
-          name: 'me',
+          name: 'Nicholas Kostelnik',
           email: 'test@example.com',
           country: 'United Kingdom',
           line1: '123 Large Drive',

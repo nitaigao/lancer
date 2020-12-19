@@ -11,22 +11,24 @@ interface InvoiceTotalProps {
 const InvoiceTotal = ({ invoice }: InvoiceTotalProps): ReactElement => (
   <div className={styles.container}>
     <table>
-      <tr>
-        <td className={styles.title}>
-          <strong>Total:</strong>
-        </td>
-        <td>
-          <Currency value={invoice.total} locale={invoice.locale} currency={invoice.currency} />
-        </td>
-      </tr>
-      <tr>
-        <td className={styles.title}>
-          <strong>Amount Due ({invoice.currency}):</strong>
-        </td>
-        <td>
-          <Currency value={invoice.amount} locale={invoice.locale} currency={invoice.currency} />
-        </td>
-      </tr>
+      <tbody>
+        <tr>
+          <td className={styles.title}>
+            <strong>Total:</strong>
+          </td>
+          <td>
+            <Currency value={invoice.total} locale={invoice.locale} currency={invoice.currency} />
+          </td>
+        </tr>
+        <tr>
+          <td className={styles.title}>
+            <strong>Amount Due ({invoice.currency}):</strong>
+          </td>
+          <td>
+            <Currency value={invoice.amount} locale={invoice.locale} currency={invoice.currency} />
+          </td>
+        </tr>
+      </tbody>
     </table>
   </div>
 )

@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 
-import { Client } from '../../types/invoice'
+import { Client } from '@prisma/client'
 
 import InvoiceAddress from './InvoiceAddress'
 
@@ -13,9 +13,9 @@ interface InvoiceCustomerProps {
 const InvoiceCustomer = ({ client }: InvoiceCustomerProps): ReactElement => (
   <div>
     <strong className={styles.clientName}>{client.name}</strong>
-    <strong className={styles.contactName}>{client.contact.name}</strong>
-    <InvoiceAddress contact={client.contact} />
-    <span>{client.contact.email}</span>
+    <strong className={styles.contactName}>{client.contact}</strong>
+    <InvoiceAddress contact={client} />
+    <span>{client.email}</span>
   </div>
 )
 

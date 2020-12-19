@@ -5,7 +5,7 @@ import RenderedInvoice from '../../components/RenderedInvoice/RenderedInvoice'
 import styles from '../../styles/Invoice.module.css'
 
 import { PrismaClient, Invoice } from '@prisma/client'
-import { GetServerSideProps, GetServerSidePropsContext } from 'next'
+import { GetServerSidePropsContext } from 'next'
 
 interface InvoicePageProps {
   invoice: Invoice
@@ -13,6 +13,7 @@ interface InvoicePageProps {
 
 const InvoicePage = ({ invoice }: InvoicePageProps): ReactElement => (
   <div className={styles.container}>
+    {console.log(invoice)}
     <RenderedInvoice invoice={invoice} />
   </div>
 )
