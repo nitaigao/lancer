@@ -1,0 +1,13 @@
+.table {
+  min-width: 960px;
+  border-collapse: collapse;
+}
+
+.heading {
+  padding: 10px;
+}
+
+.headings {
+  border-bottom: 1px solid #d4dde3;
+  text-align: left;
+}

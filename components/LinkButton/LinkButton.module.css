@@ -1,0 +1,9 @@
+.anchor {
+  background-color: #136acd;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 7px;
+  display: inline-block;
+  margin: 0 0 10px 0;
+}

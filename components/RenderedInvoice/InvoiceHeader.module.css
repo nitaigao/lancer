@@ -1,0 +1,15 @@
+.container {
+  text-align: right;
+  padding: 2em;
+  border-bottom: 1px solid #ddd;
+}
+
+.invoice {
+  display: block;
+  font-size: 2em;
+}
+
+.supplierName {
+  margin-top: 1em;
+  display: block;
+}

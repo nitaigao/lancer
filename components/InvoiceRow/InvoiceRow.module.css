@@ -1,0 +1,25 @@
+.row:hover {
+  background-color: #eee;
+  cursor: pointer;
+}
+
+.row {
+  border-bottom: 1px solid #d4dde3;
+}
+
+.cell {
+  padding: 10px;
+}
+
+.paid {
+  background-color: #adf0cc;
+}
+
+.unpaid {
+  background-color: #eb9f9f;
+}
+
+.state {
+  text-transform: uppercase;
+  color: #333;
+}

@@ -1,10 +1,11 @@
 import React, { ReactElement } from 'react'
 
 import Head from 'next/head'
-import InvoicesTable from '../components/InvoicesTable'
+import InvoicesTable from '../components/InvoicesTable/InvoicesTable'
 
 import styles from '../styles/Home.module.css'
 import { Invoice } from '../types/invoice'
+import LinkButton from '../components/LinkButton/LinkButton'
 
 interface HomeProps {
   invoices: Invoice[]
@@ -17,9 +18,9 @@ const Home = ({ invoices }: HomeProps): ReactElement => {
         <title>Invoices</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <main className={styles.main}>
         <h1 className={styles.title}>Invoices</h1>
+        <LinkButton href={'/invoices/new'} text="Create Invoice" />
         <InvoicesTable invoices={invoices} />
       </main>
     </div>
@@ -37,21 +38,87 @@ export const getServerSideProps = async (): Promise<GetServerSidePropsProps> => 
     props: {
       invoices: [
         {
+          id: 1,
           status: 'paid',
-          date: '2010-10-10',
+          date: '2010-10-21',
+          due: '2010-10-26',
           number: '1',
-          client: 'Switcher',
+          client: {
+            name: 'Switcher',
+            contact: {
+              name: 'Carl Gaywood',
+              email: 'test@example.com',
+              line1: 'Address Line 1',
+              line2: 'Address Line 2',
+              town: 'Town',
+              postcode: 'Postcode',
+              country: 'Country',
+            },
+          },
+          supplier: {
+            name: 'Nicholas Kostelnik',
+            email: 'nkostelnik@gmail.com',
+            line1: 'Address Line 1',
+            line2: 'Address Line 2',
+            town: 'Town',
+            postcode: 'Postcode',
+            country: 'Country',
+          },
           amount: 1000,
+          line_items: [
+            {
+              title: 'Software Development',
+              quantity: 18,
+              price: 500,
+              amount: 9000,
+            },
+          ],
+          total: 9000,
+          notes:
+            'Reference: Invoice Number\nRecipient: Nicholas Karl William Kostelnik\nBank: JSC TBC Bank\nBranch: Marjanishvili Street 7, 0102 Tbilisi, Georgia\nIBAN: GE36TB7189936110100005\nSWIFT code: TBCBGE22',
         },
         {
-          status: 'paid',
-          date: '2020-10-10',
-          number: '2',
-          client: 'Aircury',
-          amount: 2000,
+          id: 1,
+          status: 'unpaid',
+          date: '2010-10-21',
+          due: '2010-10-26',
+          number: '1',
+          client: {
+            name: 'Aircury',
+            contact: {
+              name: 'jose Diaz',
+              email: 'test@example.com',
+              line1: 'Address Line 1',
+              line2: 'Address Line 2',
+              town: 'Town',
+              postcode: 'Postcode',
+              country: 'Country',
+            },
+          },
+          supplier: {
+            name: 'Nicholas Kostelnik',
+            email: 'nkostelnik@gmail.com',
+            line1: 'Address Line 1',
+            line2: 'Address Line 2',
+            town: 'Town',
+            postcode: 'Postcode',
+            country: 'Country',
+          },
+          amount: 1000,
+          line_items: [
+            {
+              title: 'Software Development',
+              quantity: 18,
+              price: 500,
+              amount: 9000,
+            },
+          ],
+          total: 9000,
+          notes:
+            'Reference: Invoice Number\nRecipient: Nicholas Karl William Kostelnik\nBank: JSC TBC Bank\nBranch: Marjanishvili Street 7, 0102 Tbilisi, Georgia\nIBAN: GE36TB7189936110100005\nSWIFT code: TBCBGE22',
         },
       ],
-    }, // will be passed to the page component as props
+    },
   }
 }
 

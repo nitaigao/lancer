@@ -1,0 +1,7 @@
+.row {
+  border-bottom: 1px solid #ddd;
+}
+
+.cell {
+  padding: 1em 2em;
+}

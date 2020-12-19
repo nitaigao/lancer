@@ -4,13 +4,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 1600px;
 }
 
-.main {
-  background-color: 'red';
-}
-
-.title {
-  background-color: 'red';
+.nav {
+  display: flex;
 }
