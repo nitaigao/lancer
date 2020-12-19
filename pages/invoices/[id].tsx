@@ -2,9 +2,10 @@ import React, { ReactElement } from 'react'
 
 import RenderedInvoice from '../../components/RenderedInvoice/RenderedInvoice'
 
-import { Invoice } from '../../types/invoice'
-
 import styles from '../../styles/Invoice.module.css'
+
+import { PrismaClient, Invoice } from '@prisma/client'
+import { GetServerSideProps, GetServerSidePropsContext } from 'next'
 
 interface InvoicePageProps {
   invoice: Invoice
@@ -22,56 +23,24 @@ interface GetServerSidePropsProps {
   }
 }
 
-export const getServerSideProps = async (): Promise<GetServerSidePropsProps> => {
+export const getServerSideProps = async (
+  context: GetServerSidePropsContext
+): Promise<GetServerSidePropsProps> => {
+  const prisma = new PrismaClient()
+  const invoice = await prisma.invoice.findFirst({
+    where: {
+      id: parseInt(context.params.id as string),
+    },
+    include: {
+      supplier: true,
+      client: true,
+      line_items: true,
+    },
+  })
+  console.log(invoice)
   return {
     props: {
-      invoice: {
-        id: 1,
-        status: 'paid',
-        date: '2010-10-10',
-        due: '2010-10-15',
-        number: '1',
-        notes:
-          'Reference: Invoice Number\nRecipient: Nicholas Karl William Kostelnik\nBank: JSC TBC Bank\nBranch: Marjanishvili Street 7, 0102 Tbilisi, Georgia\nIBAN: GE36TB7189936110100005\nSWIFT code: TBCBGE22',
-        line_items: [
-          {
-            title: 'Software Development',
-            quantity: 18,
-            price: 500,
-            amount: 9000,
-          },
-          {
-            title: 'Software Development',
-            quantity: 18,
-            price: 500,
-            amount: 9000,
-          },
-        ],
-        total: 9000,
-        client: {
-          name: 'Switcher',
-          contact: {
-            name: 'Carl Gaywood',
-            email: 'test@example.com',
-            line1: 'Address Line 1',
-            line2: 'Address Line 2',
-            town: 'Town',
-            postcode: 'Postcode',
-            country: 'Country',
-          },
-        },
-        supplier: {
-          name: 'Nicholas Kostelnik',
-          email: 'nkostelnik@gmail.com',
-          line1: '49 Mikheil Gakhokidze Street',
-          town: 'Tbilisi',
-          postcode: '0179',
-          country: 'Georgia',
-        },
-        amount: 1000,
-        locale: 'en-GB',
-        currency: 'GBP',
-      },
+      invoice: JSON.parse(JSON.stringify(invoice)),
     },
   }
 }

@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { Invoice } from '../../types/invoice'
 
 import styles from './InvoiceRow.module.css'
+import FormattedDate from '../FormattedDate/FormattedDate'
 
 interface InvoiceRowProps {
   invoice: Invoice
@@ -33,7 +34,9 @@ const InvoiceRow = ({ invoice }: InvoiceRowProps): ReactElement => {
     <Link href={`/invoices/${invoice.id}`}>
       <tr className={styles.row}>
         <StateCell status={invoice.status} />
-        <td className={styles.cell}>{invoice.date}</td>
+        <td className={styles.cell}>
+          <FormattedDate value={invoice.date} locale={invoice.locale} style="short" />
+        </td>
         <td className={styles.cell}>{invoice.number}</td>
         <td className={styles.cell}>{invoice.client.name}</td>
         <td className={styles.cell}>{invoice.amount}</td>
